@@ -1,0 +1,57 @@
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+/* Base */
+.divset {
+  padding: 0;
+  margin: 0;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.heading {
+  position: relative;
+  color: hsl(0, 0%, 100%);
+
+  letter-spacing: 7px;
+  overflow: hidden;
+  border-right: 2px solid hsl(0, 0%, 80%);
+  white-space: nowrap;
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+    blinkTextCursor 500ms infinite;
+
+    background-image: url(../assets/titlebackground2.gif);
+    background-size: cover;
+    /* -webkit-background-clip:text;
+    background-clip: text; */
+    color: transparent;
+    /* -moz-background-clip: text; */
+    /* -moz-background-clip: text;
+    -webkit-background-clip: text; */
+    /* text-transform: uppercase; */
+    background-position-y:20%;
+ 
+    filter: drop-shadow(0 0 0.75rem hsl(0, 0%, 50%));
+  
+  
+}
+
+
+  
+ 
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: hsl(0, 0%, 80%);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
