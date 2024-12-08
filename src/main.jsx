@@ -6,6 +6,8 @@ import Homepage from "./routes/homepage";
 import Chatbot from "./routes/chatbot";
 import Chatpage from "./routes/Chatpage";
 import Dashboard from "./routes/dashboard";
+import Signup from "./routes/signup";
+import Signin from "./routes/signin"
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
+  },
+  {
+    path: "/signin",
+    element: <Signin />,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
   },
 ]);
 

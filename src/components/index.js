@@ -19,6 +19,8 @@ import SidebarButton from "./SidebarButton";
 import Sidebarbuttons from "./Sidebarbuttons";
 import Navbaar from "./Navbar2";
 import Dashboardprofile from "./Dashboardprofile";
+import Logbox from "./Logbox"
+import Signbox from "./singbox"
 
 export {
   Navbar,
@@ -42,4 +44,6 @@ export {
   Sidebarbuttons,
   Navbaar,
   Dashboardprofile,
+  Logbox,
+  Signbox
 };

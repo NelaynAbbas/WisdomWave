@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '../style'
 
-import { Navbar, Hero, Stats, Business, Testinomials, Clients, CTA, Footer, Logbox } from '../components'
+import { Navbar, Footer, Logbox } from '../components'
 
 const Signin = () =>  (
   <div className = "bg-primary w-full overflow-hidden">
