@@ -17,6 +17,9 @@ const styles = {
 
   marginX: "sm:mx-16 mx-6",
   marginY: "sm:my-16 my-6",
+
+  inputFocus: "transition-all duration-300 transform focus:scale-105 focus:border-teal-500 focus:outline-none",
+  buttonHover: "hover:bg-teal-700 active:scale-95 transition-transform duration-200",
 };
 
 export const layout = {
