@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from '../style' 
-import { discount,robot} from '../assets'
 import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 
@@ -28,7 +27,7 @@ const Logbox = () => {
               </div>
               <button type='submit' className='px-[30px] py-[7px] bg-teal-900 rounded-[20px] w-[100%]'>Login</button>
               <div className='my-[10px] flex justify-between'>
-                  <p>Don't have any account? <a href='#' className='text-slate-600'> Register Now</a></p>
+                  <p>Don't have any account? <a href='/signup' className='text-slate-600'> Register Now</a></p>
               </div>
             </form>
         </div>
