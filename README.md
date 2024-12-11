@@ -12,11 +12,21 @@
 ```sh
 npm install
 ```
+```sh
+pip install Flask Flask-PyMongo python-dotenv
+```
+```sh
+npm install axios
+```
+
 
 ## Run tests
 
 ```sh
 npm run dev
+```
+```sh
+python app.py
 ```
 
 ## Author
