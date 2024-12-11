@@ -27,14 +27,14 @@ npm run dev
 * Github: [@NelaynAbbas](https://github.com/NelaynAbbas)
 * LinkedIn: [@nelayn-abbas](https://linkedin.com/in/nelayn-abbas)
 
-## Author
+## Contributor
 
 👤 **Muhammad Mohib Ali**
 
 * Github: [@mohibali082](https://github.com/mohibali082)
 * LinkedIn: [@muhammadmohibali082](https://www.linkedin.com/in/muhammadmohibali082/)
 
-## Author
+## Contributor
 
 👤 **Muhamamd Abdullah Ramzan**
 
