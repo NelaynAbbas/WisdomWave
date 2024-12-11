@@ -3,7 +3,7 @@ import styles from '../style';
 import { FaUser, FaLock } from 'react-icons/fa';
 import { MdDriveFileRenameOutline, MdEmail } from 'react-icons/md';
 
-const Logbox = () => {
+const Signbox = () => {
   const [formData, setFormData] = useState({
     name: '',
     username: '',
@@ -163,4 +163,4 @@ const Logbox = () => {
   );
 };
 
-export default Logbox;
+export default Signbox;

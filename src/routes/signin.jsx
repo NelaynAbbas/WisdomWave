@@ -1,13 +1,13 @@
 import React from 'react'
 import styles from '../style'
 
-import { Navbar, Footer, Logbox } from '../components'
+import { Navbar2, Footer, Logbox } from '../components'
 
 const Signin = () =>  (
   <div className = "bg-primary w-full overflow-hidden">
     <div className= {`${styles.paddingX} ${styles.flexCenter}`} >
       <div className={`${styles.boxWidth}`}>
-        <Navbar/>
+        <Navbar2/>
       </div>
     </div>
     <div className={`bg-primary ${styles.flexStart} ${styles.paddingX} ${styles.flexCenter}`}>

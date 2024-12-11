@@ -18,7 +18,7 @@ import {
 
 export const navLinks = [
   {
-    id: "home",
+    id: "#",
     title: "Home",
   },
   {
@@ -32,6 +32,25 @@ export const navLinks = [
   {
     id: "signin",
     title: "Signin",
+  },
+];
+
+export const navLinks2 = [
+  {
+    id: "#",
+    title: "Home",
+  },
+  {
+    id: "chatroom",
+    title: "Chatroom",
+  },
+  {
+    id: "clients",
+    title: "Clients",
+  },
+  {
+    id: "signup",
+    title: "Signup",
   },
 ];
 
