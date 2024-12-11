@@ -27,6 +27,20 @@ npm run dev
 * Github: [@NelaynAbbas](https://github.com/NelaynAbbas)
 * LinkedIn: [@nelayn-abbas](https://linkedin.com/in/nelayn-abbas)
 
+## Author
+
+👤 **Muhammad Mohib Ali**
+
+* Github: [@mohibali082](https://github.com/mohibali082)
+* LinkedIn: [@muhammadmohibali082](https://www.linkedin.com/in/muhammadmohibali082/)
+
+## Author
+
+👤 **Muhamamd Abdullah Ramzan**
+
+* Github: [@buzzgrewal](https://github.com/buzzgrewal)
+* LinkedIn: [@abdullahgrewal](https://www.linkedin.com/in/abdullahgrewal)
+
 ## Show your support
 
 Give a ⭐️ if this project helped you!
