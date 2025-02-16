@@ -76,7 +76,7 @@
 
 1. **Clone the Repository**:  
    ```bash
-   git clone https://github.com/your-repo-name/wisdomwave.git
+   git clone https://github.com/NelaynAbbas/WisdomWave.git
 
 ---
 ## Install
