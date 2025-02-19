@@ -1,68 +1,60 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
-from pymongo import MongoClient
-from config import Config
-from models.user import User
+from flask import Flask, request, abort, jsonify, session
+from flask_bcrypt import Bcrypt
+from models import db, User
+from config import ApplicationConfig
+from flask_session import Session
 
 app = Flask(__name__)
-CORS(app)
+app.config.from_object(ApplicationConfig)
 
-# Connect to MongoDB
-client = MongoClient(Config.MONGO_URI)
-db = client.wisdomwave  # Your database name
-user_model = User(db)
+db.init_app(app)
+bcrypt = Bcrypt(app)
+server_session = Session(app)
 
-@app.route('/api/signup', methods=['POST'])
+with app.app_context():
+    db.create_all()
+
+@app.route('/signup', methods=['POST'])
 def signup():
-    try:
-        data = request.get_json()
-        
-        # Validate required fields
-        required_fields = ['name', 'username', 'email', 'password']
-        if not all(field in data for field in required_fields):
-            return jsonify({"error": "Missing required fields"}), 400
+    username = request.json["username"]
+    password = request.json["password"]
 
-        # Create new user
-        success, message = user_model.create_user(
-            name=data['name'],
-            username=data['username'],
-            email=data['email'],
-            password=data['password']
-        )
+    user_exists = User.query.filter_by(username=username).first() is not None
 
-        if success:
-            return jsonify({"message": "User created successfully", "userId": message}), 201
-        else:
-            return jsonify({"error": message}), 400
+    if user_exists:
+        return jsonify({"error": "User already exists"}), 409
+    
+    hashed_password = bcrypt.generate_password_hash(password)
+    new_user = User(username=username, password=hashed_password)
 
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    db.session.add(new_user)
+    db.session.commit()
 
-@app.route('/api/login', methods=['POST'])
+    return jsonify({
+        "id": new_user.id,
+        "username": new_user.username 
+    })
+
+@app.route('/signin', methods=['POST'])
 def login():
-    try:
-        data = request.get_json()
-        
-        if not all(k in data for k in ['email', 'password']):
-            return jsonify({"error": "Missing email or password"}), 400
+    username = request.json["username"]
+    password = request.json["password"]
 
-        success, user = user_model.validate_user(data['email'], data['password'])
-        
-        if success:
-            return jsonify({
-                "message": "Login successful",
-                "user": {
-                    "name": user['name'],
-                    "email": user['email'],
-                    "username": user['username']
-                }
-            }), 200
-        else:
-            return jsonify({"error": "Invalid credentials"}), 401
+    user = User.query.filter_by(username=username).first()
 
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    if user is None:
+        return jsonify({"error": "Unauthorized"}), 401
+    
+    if not bcrypt.check_password_hash(user.password, password):
+        return jsonify({"error": "Unauthorized"}), 401
+    
+    session["user_id"] = user.id
+
+    return jsonify({
+        "id": user.id,
+        "username": user.username 
+    })
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
-
