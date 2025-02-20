@@ -22,6 +22,7 @@ import Dashboardprofile from "./Dashboardprofile";
 import Logbox from "./Logbox"
 import Signbox from "./singbox"
 import Navbar2 from "./Navbar2";
+import Foundnot from "./foundnot";
 
 export {
   Navbar,
@@ -47,5 +48,6 @@ export {
   Dashboardprofile,
   Logbox,
   Signbox,
-  Navbar2
+  Navbar2,
+  Foundnot
 };

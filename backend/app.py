@@ -14,6 +14,21 @@ server_session = Session(app)
 with app.app_context():
     db.create_all()
 
+@app.route('/@me')
+def get_current_user():
+    user_id = session.get("user_id")
+
+    if not user_id:
+        return jsonify({"error": "Unauthorized"}), 401
+    
+    user = User.query.filter_by(id=user_id).first()
+
+    return jsonify({
+        "id": user.id,
+        "username": user.username 
+    })
+
+
 @app.route('/signup', methods=['POST'])
 def signup():
     username = request.json["username"]
