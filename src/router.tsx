@@ -16,6 +16,11 @@ const Routers = () => {
         <Routes>
             <Route path="/" Component={Homepage} />
             <Route path="*" Component={Notfound} />
+            <Route path="/chatbot" Component={Chatbot} />
+            <Route path="/chatpage" Component={Chatpage} />
+            <Route path="/dashboard" Component={Dashboard} />
+            <Route path="/signup" Component={Signup} />
+            <Route path="/signin" Component={Signin} />
         </Routes>
     </Router>
 )}
