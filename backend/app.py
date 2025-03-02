@@ -27,13 +27,17 @@ def get_current_user():
 
     return jsonify({
         "id": user.id,
-        "username": user.username 
+        "username": user.username,
+        "name": user.name,
+        "email": user.email
     })
 
 @app.route('/signup', methods=['POST'])
 def signup():
     username = request.json["username"]
     password = request.json["password"]
+    name = request.json["name"]
+    email = request.json["email"]
 
     user_exists = User.query.filter_by(username=username).first() is not None
 
@@ -41,17 +45,24 @@ def signup():
         return jsonify({"error": "User already exists"}), 409
     
     hashed_password = bcrypt.generate_password_hash(password)
-    new_user = User(username=username, password=hashed_password)
+    new_user = User(username=username, password=hashed_password, name=name, email=email)
 
     db.session.add(new_user)
     db.session.commit()
+
+    session["user_id"] = new_user.id
 
     return jsonify({
         "id": new_user.id,
         "username": new_user.username 
     })
 
-@app.route('/signin', methods=['POST'])
+@app.route('/logout', methods = ['POST'])
+def logout_user():
+    session.pop("user_id")
+    return "200"
+
+@app.route('/signin', methods = ['POST'])
 def login():
     username = request.json["username"]
     password = request.json["password"]

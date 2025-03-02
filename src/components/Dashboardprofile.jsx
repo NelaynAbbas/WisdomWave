@@ -1,5 +1,6 @@
 import { Profile } from "../constants";
 import { dashboardStyle } from "../style";
+import { useState, useEffect } from "react";
 import { MdOutlineSchool } from "react-icons/md";
 import { MdOutlineMail } from "react-icons/md";
 import { PiCityLight } from "react-icons/pi";
@@ -9,7 +10,7 @@ import { PiBooksLight } from "react-icons/pi";
 import { MdOutlineDescription } from "react-icons/md";
 import { TbSocial } from "react-icons/tb";
 
-const Dashboardprofile = () => {
+const Dashboardprofile = ({user}) => {
   return (
     <div class="font-sans antialiased text-white leading-normal tracking-wider bg-cover ">
       <div class="max-w-6xl flex items-center h-auto flex-wrap mx-auto my-32 lg:my-0">
@@ -23,33 +24,17 @@ const Dashboardprofile = () => {
               style={{ backgroundImage: `url(${Profile.img})` }}
             ></div>
             <div className="absolute z-[0] w-[60%] h-[70%] -left-[50%] rounded-full blue__gradient" />
-            <h1 class="text-3xl font-bold pt-8 lg:pt-0 text-primary">
-              {Profile.name}
+            <h1 className="text-3xl font-bold pt-8 lg:pt-0 text-primary">
+              {user ? user.name : "Loading..."}
             </h1>
             <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-primary opacity-25"></div>
             <p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start">
               <MdOutlineMail className=" text-primary m-2" />
-              {Profile.email}
+              {user ? user.username : "Loading..."}
             </p>
             <p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start">
-              <MdOutlineLocalPhone className=" text-primary m-2" />
-              {Profile.phone}
-            </p>
-            <p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start">
-              <LuSchool className=" text-primary m-2" />
-              {Profile.school}
-            </p>
-            <p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start">
-              <MdOutlineSchool className=" text-primary m-2" />
-              {Profile.level}
-            </p>
-            <p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start">
-              <PiCityLight className=" text-primary m-2" />
-              {Profile.city}
-            </p>
-            <p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start">
-              <PiBooksLight className=" text-primary m-2" />
-              Courses:
+              <MdOutlineMail className=" text-primary m-2" />
+              {user ? user.email : "Loading..."}
             </p>
             <p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-center flex-wrap-reverse">
               {Profile.courses.map((course) => (
@@ -73,12 +58,6 @@ const Dashboardprofile = () => {
             </p>
             <p class="pt-2 text-sm text-center">{Profile.bio}</p>
             <p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start"></p>
-
-            <div class="pt-12 pb-8 container py-10 px-10 mx-0 min-w-full flex flex-col items-center ">
-              <button class="bg-primary hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-[20px] ">
-                Edit
-              </button>
-            </div>
 
             <p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start">
               <TbSocial className=" text-primary m-2" />

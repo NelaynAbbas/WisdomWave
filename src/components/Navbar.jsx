@@ -1,23 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 
 import { close, logo, menu} from  '../assets'
 import { navLinks } from '../constants'
+import httpClient from '../httpClient'
+import ProfileDropdown from "./profiledrop"
 
-const Navbar = () => {
+const Navbar = ({user}) => {
   const [toggle, setToggle] = useState(false)
+
+
   return (
     <div className='w-full flex py-6 justify-between items-center navbar'>
       <a href='\#' ><img src={logo} alt='wisdomWave' className="w-[193px] h-[50px]" /></a>
 
-      <ul className='list-none sm:flex hidden justify-end items-center flex-1'>
+      <ul className='list-none sm:flex hidden justify-end items-center flex-1'> 
         {navLinks.map((nav,index) => (
           <li
             key = {nav.id}
             className = {`font-poppins font-normal cursor-pointer text-[16px] ${index === navLinks.length -1 ? 'mr-0' : 'mr-10'} text-white`}
           >
-            <a href = {`/${nav.id}`}>
-              {nav.title}
+            <a href = { !(nav.title === "Signin" && user) ? `/${nav.id}` : '#'}>
+              {nav.title === "Signin" && user ? <ProfileDropdown user={user}/> : nav.title}
             </a>
           </li>
         ))}

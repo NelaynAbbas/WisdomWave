@@ -22,6 +22,7 @@ import lls from "./lls.png";
 import tcs from "./tcs.png";
 import lgs from "./lgs.png";
 import bugs from "./bugs.png";
+import avatar from "./avatar.png";
 
 export {
   logo,
@@ -48,4 +49,5 @@ export {
   tcs,
   lgs,
   bugs,
+  avatar,
 };

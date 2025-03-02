@@ -13,7 +13,7 @@ import {
   shield,
   star,
   lls,
-  bugs,
+  avatar,
 } from "../assets";
 
 export const navLinks = [
@@ -34,6 +34,7 @@ export const navLinks = [
     title: "Signin",
   },
 ];
+
 
 export const navLinks2 = [
   {
@@ -296,7 +297,7 @@ export const sidebarProfile = {
 
 export const Profile = {
   id: "profile",
-  img: bugs,
+  img: avatar,
   name: "Abdullah Ramzan",
   email: "buzzgrewal@gmail.com",
   phone: "+923004567890",

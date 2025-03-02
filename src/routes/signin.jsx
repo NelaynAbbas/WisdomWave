@@ -22,10 +22,10 @@ const Signin = () =>  {
     }
     catch(error){
       if(error.response.status === 401){
-        setError("Invalid username or password");
+        console.log("Invalid username or password");
       }
       else{
-        setError("An error occured. Please try again later");
+        console.log("An error occured. Please try again later");
       }
     }
   };

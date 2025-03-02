@@ -23,6 +23,8 @@ import Logbox from "./Logbox"
 import Signbox from "./singbox"
 import Navbar2 from "./Navbar2";
 import Foundnot from "./foundnot";
+import ProfileDropdown from "./profiledrop";
+import Navbar3 from "./Navbar3";
 
 export {
   Navbar,
@@ -49,5 +51,7 @@ export {
   Logbox,
   Signbox,
   Navbar2,
-  Foundnot
+  Foundnot,
+  ProfileDropdown,
+  Navbar3
 };
