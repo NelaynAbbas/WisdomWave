@@ -3,6 +3,7 @@ flask-sqlalchemy
 flask-bcrypt
 python-dotenv
 flask-session
+<<<<<<< HEAD
 redis
 flask-cors
 langchain
@@ -16,3 +17,6 @@ PyPDF2
 ollama
 pdfplumber
 chromadb
+=======
+redis
+>>>>>>> 3a3f932396437c3860b1c25566c4e7d86e8052ea

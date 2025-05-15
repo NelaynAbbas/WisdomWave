@@ -13,7 +13,10 @@
     "@headlessui/react": "^2.2.0",
     "axios": "^1.7.9",
     "clsx": "^2.1.1",
+<<<<<<< HEAD
     "framer-motion": "^12.5.0",
+=======
+>>>>>>> 3a3f932396437c3860b1c25566c4e7d86e8052ea
     "lucide-react": "^0.477.0",
     "mongo": "^0.1.0",
     "react": "^18.3.1",

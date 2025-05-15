@@ -25,8 +25,11 @@ import Navbar2 from "./Navbar2";
 import Foundnot from "./foundnot";
 import ProfileDropdown from "./profiledrop";
 import Navbar3 from "./Navbar3";
+<<<<<<< HEAD
 import Ask from "./Ask";
 import Pastask from "./pastask"
+=======
+>>>>>>> 3a3f932396437c3860b1c25566c4e7d86e8052ea
 
 export {
   Navbar,
@@ -55,7 +58,11 @@ export {
   Navbar2,
   Foundnot,
   ProfileDropdown,
+<<<<<<< HEAD
   Navbar3,
   Ask,
   Pastask
+=======
+  Navbar3
+>>>>>>> 3a3f932396437c3860b1c25566c4e7d86e8052ea
 };

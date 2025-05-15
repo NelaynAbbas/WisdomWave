@@ -137,6 +137,7 @@
 .white__gradient {
   background: rgba(255, 255, 255, 0.6);
   filter: blur(750px);
+<<<<<<< HEAD
 }
 
 /* Modern Scrollbar */
@@ -167,3 +168,6 @@
 .chat-container::-webkit-scrollbar-thumb:hover {
   background: #2563eb; /* Darker blue on hover */
 }
+=======
+}
+>>>>>>> 3a3f932396437c3860b1c25566c4e7d86e8052ea

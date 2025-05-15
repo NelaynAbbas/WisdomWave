@@ -1,9 +1,15 @@
 import React, { useState } from 'react'
 import styles from '../style'
+<<<<<<< HEAD
 import { FaUser, FaEye, FaEyeSlash, FaLock } from 'react-icons/fa';
 import { MdDriveFileRenameOutline, MdEmail } from 'react-icons/md';
 import httpClient from '../httpClient';
 import { motion } from "framer-motion";
+=======
+import { FaUser, FaLock } from 'react-icons/fa';
+import { MdDriveFileRenameOutline, MdEmail } from 'react-icons/md';
+import httpClient from '../httpClient';
+>>>>>>> 3a3f932396437c3860b1c25566c4e7d86e8052ea
 
 import { Navbar, Footer, Logbox } from '../components'
 
@@ -15,6 +21,7 @@ const Signin = () =>  {
   const [name, setName] = useState("");
   const [error, setError] = useState("");
 
+<<<<<<< HEAD
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -48,6 +55,27 @@ const Signin = () =>  {
     }
   };
   
+=======
+  const signupUser = async (e) => {
+    try{
+      const response = await httpClient.post("//localhost:5000/signup", {
+      name,
+      username,
+      password,
+      email,
+    });  
+      window.location.href = "/";
+    }
+    catch(error){
+      if(error.response.status === 401){
+        setError("Can't Sigin Up Right Now");
+      }
+      else{
+        setError("An error occured. Please try again later");
+      }
+    }
+  };
+>>>>>>> 3a3f932396437c3860b1c25566c4e7d86e8052ea
 
   const [formData, setFormData] = useState({
       name: '',
@@ -61,6 +89,7 @@ const Signin = () =>  {
     const [message, setMessage] = useState('');
   
     const validateForm = () => {
+<<<<<<< HEAD
       let valid = true;
       let newErrors = {};
     
@@ -93,6 +122,32 @@ const Signin = () =>  {
     
       setErrors(newErrors); // Update error state
       return valid; // Return validation result
+=======
+      const newErrors = {};
+      const nameRegex = /^[a-zA-Z\s]{3,30}$/; // Name: 3-30 characters, only letters and spaces
+      const usernameRegex = /^[a-zA-Z0-9_]{4,16}$/; // Username: 4-16 characters, alphanumeric, underscores allowed
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Valid email format
+      const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/; // Password: Minimum 8 characters, at least one letter and one number
+  
+      if (!nameRegex.test(formData.name)) {
+        newErrors.name = 'Name must be 3-30 characters long and can only include letters and spaces.';
+      }
+      if (!usernameRegex.test(formData.username)) {
+        newErrors.username = 'Username must be 4-16 characters and can include letters, numbers, and underscores.';
+      }
+      if (!emailRegex.test(formData.email)) {
+        newErrors.email = 'Please enter a valid email address.';
+      }
+      if (!passwordRegex.test(formData.password)) {
+        newErrors.password = 'Password must be at least 8 characters long, with at least one letter and one number.';
+      }
+      if (formData.password !== formData.confirmPassword) { 
+        newErrors.confirmPassword = 'Passwords do not match.';
+      }
+  
+      setErrors(newErrors);
+      return Object.keys(newErrors).length === 0;
+>>>>>>> 3a3f932396437c3860b1c25566c4e7d86e8052ea
     };
   
     const handleChange = (e) => {
@@ -100,6 +155,7 @@ const Signin = () =>  {
       setErrors({ ...errors, [e.target.name]: '' }); // Clear error for the field being edited
     };
   
+<<<<<<< HEAD
     const handleSubmit = async (e) => {
       e.preventDefault();
     
@@ -110,6 +166,18 @@ const Signin = () =>  {
       await signupUser(); // Now correctly submits the form data
     };
     
+=======
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      if (!validateForm()) {
+        return;
+      }
+  
+      // Process form submission
+      setMessage('SignUp successful!');
+      console.log('Form data:', formData);
+    };
+>>>>>>> 3a3f932396437c3860b1c25566c4e7d86e8052ea
   
   return(
   <div className = "bg-primary w-full overflow-hidden">
@@ -182,11 +250,16 @@ const Signin = () =>  {
               <div className="input-box flex flex-row-reverse gap-4 justify-end items-center">
                 <input
                   className={`w-[100%] h-[100%] py-[3px] text-center rounded-[30px] bg-transparent border-teal-900 border-[2px] ${styles.inputFocus}`}
+<<<<<<< HEAD
                   type={showPassword ? "text" : "password"}
+=======
+                  type="password"
+>>>>>>> 3a3f932396437c3860b1c25566c4e7d86e8052ea
                   name="password"
                   placeholder="Password"
                   value={formData.password}
                   onChange={(e) => {
+<<<<<<< HEAD
                     handleChange(e);
                     setPassword(e.target.value);
                   }}
@@ -199,6 +272,13 @@ const Signin = () =>  {
                 >
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </button>
+=======
+                    handleChange(e); // Update formData state
+                    setPassword(e.target.value); // Update name state separately
+                  }}
+                  required
+                />
+>>>>>>> 3a3f932396437c3860b1c25566c4e7d86e8052ea
                 <FaLock />
               </div>
               {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
@@ -206,13 +286,18 @@ const Signin = () =>  {
               <div className="input-box flex flex-row-reverse gap-4 justify-end items-center">
                 <input
                   className={`w-[100%] h-[100%] py-[3px] text-center rounded-[30px] bg-transparent border-teal-900 border-[2px] ${styles.inputFocus}`}
+<<<<<<< HEAD
                   type={showPassword ? "text" : "password"}
+=======
+                  type="password"
+>>>>>>> 3a3f932396437c3860b1c25566c4e7d86e8052ea
                   name="confirmPassword"
                   placeholder="Confirm Password"
                   value={formData.confirmPassword}
                   onChange={handleChange}
                   required
                 />
+<<<<<<< HEAD
                 <button
                   type="button"
                   onClick={togglePasswordVisibility}
@@ -220,12 +305,15 @@ const Signin = () =>  {
                 >
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </button>
+=======
+>>>>>>> 3a3f932396437c3860b1c25566c4e7d86e8052ea
                 <FaLock />
               </div>
               {errors.confirmPassword && (
                 <p className="text-red-500 text-sm">{errors.confirmPassword}</p>
               )}
             </div>
+<<<<<<< HEAD
             <motion.button
               type="submit"
               whileHover={{
@@ -240,6 +328,15 @@ const Signin = () =>  {
               Signup
             </motion.button>
 
+=======
+            <button
+              type="submit"
+              className={`animated-button my-[15px] px-[30px] py-[3px] bg-teal-900 rounded-[20px] w-[100%] ${styles.buttonHover}`}
+              onClick = {() => signupUser()}
+            >
+              Signup
+            </button>
+>>>>>>> 3a3f932396437c3860b1c25566c4e7d86e8052ea
             <div className="flex justify-center">
               <p>
                 Already have an account?{' '}

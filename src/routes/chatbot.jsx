@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../style";
@@ -56,3 +57,14 @@ const Chatbot = () => {
 };
 
 export default Chatbot;
+=======
+import React from 'react'
+
+const Chatbot = () => (
+    <div>
+      chatbot
+    </div>
+)
+
+export default Chatbot
+>>>>>>> 3a3f932396437c3860b1c25566c4e7d86e8052ea

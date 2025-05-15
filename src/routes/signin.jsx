@@ -3,7 +3,10 @@ import styles from '../style'
 import { FaUser } from 'react-icons/fa';
 import { FaLock } from 'react-icons/fa';
 import httpClient from '../httpClient';
+<<<<<<< HEAD
 import { motion } from "framer-motion";
+=======
+>>>>>>> 3a3f932396437c3860b1c25566c4e7d86e8052ea
 
 import { Navbar2, Footer, Logbox } from '../components'
 
@@ -24,11 +27,17 @@ const Signin = () =>  {
     catch(error){
       if(error.response.status === 401){
         console.log("Invalid username or password");
+<<<<<<< HEAD
         setError("Invalid username or password");
       }
       else{
         console.log("An error occured. Please try again later");
         setError("An error occured. Please try again later");
+=======
+      }
+      else{
+        console.log("An error occured. Please try again later");
+>>>>>>> 3a3f932396437c3860b1c25566c4e7d86e8052ea
       }
     }
   };
@@ -86,6 +95,7 @@ const Signin = () =>  {
                 Forgot Password?
               </a>
             </div>
+<<<<<<< HEAD
             {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
               <motion.button
                 type="button"
@@ -101,6 +111,17 @@ const Signin = () =>  {
               >
                 Login 
               </motion.button>
+=======
+            {/* Display error message in red if login fails */}
+            {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+            <button
+              type="button"
+              onClick = {() => logInUser()}
+              className={`animated-button px-[30px] py-[7px] bg-teal-900 rounded-[20px] w-[100%] ${styles.buttonHover}`}
+            >
+              Login
+            </button>
+>>>>>>> 3a3f932396437c3860b1c25566c4e7d86e8052ea
             <div className="my-[10px] flex justify-center">
               <p>
                 Don't have any account?{' '}

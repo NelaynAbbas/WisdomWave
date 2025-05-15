@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import axios from "axios";
 
 const httpClient = axios.create({
@@ -9,3 +10,10 @@ const httpClient = axios.create({
 });
 
 export default httpClient;
+=======
+import axios from "axios"
+
+export default axios.create({
+    withCredentials: true,
+});
+>>>>>>> 3a3f932396437c3860b1c25566c4e7d86e8052ea
